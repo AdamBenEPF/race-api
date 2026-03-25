@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.Objects;
 
@@ -16,6 +18,9 @@ public class Runner {
 
     private String firstName;
     private String lastName;
+
+    @Email(message="L'adresse email est invalide")
+    @NotBlank(message="L'email est obligatoire")
     private String email;
     private Integer age;
 

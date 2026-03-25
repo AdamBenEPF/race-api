@@ -1,4 +1,4 @@
-# TP — Création d'une API REST : Gestion d'inscriptions à une course
+# BENLAHARCHE ADAM : TP — Création d'une API REST : Gestion d'inscriptions à une course
 
 ## Objectif
 

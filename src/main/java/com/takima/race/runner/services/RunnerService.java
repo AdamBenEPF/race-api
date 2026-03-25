@@ -1,12 +1,13 @@
 package com.takima.race.runner.services;
 
-import com.takima.race.runner.entities.Runner;
-import com.takima.race.runner.repositories.RunnerRepository;
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
+import com.takima.race.runner.entities.Runner;
+import com.takima.race.runner.repositories.RunnerRepository;
 
 @Service
 public class RunnerService {
@@ -29,4 +30,23 @@ public class RunnerService {
                 )
         );
     }
+
+    public Runner create(Runner runner) {
+        return runnerRepository.save(runner);
+    }
+
+    public Runner updateRunner(Long id, Runner runner) {
+        Runner existingRunner = getById(id);
+        existingRunner.setFirstName(runner.getFirstName());
+        existingRunner.setLastName(runner.getLastName());
+        existingRunner.setEmail(runner.getEmail());
+        existingRunner.setAge(runner.getAge());
+        return runnerRepository.save(existingRunner);
+    }
+
+    public void deleteRunner(Long id) {
+        Runner existingRunner = getById(id);
+        runnerRepository.delete(existingRunner);
+    }
+
 }
